@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country app</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <form>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Rechercher un pays">
+            <input type="submit" value="Go">
+        </div>
+        <div class="range-bar">
+            <label for="range">Combien de pays souhaitez-vous afficher ?</label>
+            <span id="range-value"></span>
+            <input type="range" id="range" min="1" max="250" value="250">
+        </div>
+        <div class="sort">
+            <button id="decrease">Trier par ordre décroissant</button>
+            <button id="increase">Trier par ordre croissant</button>
+        </div>
+
+    </form>
+    <div class="card-container"></div>
+
+    <script src="assets/js/index.js"></script>
+</body>
+</html>
