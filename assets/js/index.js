@@ -1,15 +1,4 @@
 const cardContainter = document.querySelector('.card-container');
-const rangeValue = document.getElementById('range-value');
-const inputSearch = document.getElementById('input-search');
-
-
-range.addEventListener('input', updateRangeValue);
-
-function updateRangeValue() {
-    const newRange = range.value;
-
-    rangeValue.textContent = newRange;
-}
 
 const fetchCountries = async () => {
     const fetchData = await fetch("https://restcountries.com/v3.1/all");
@@ -25,6 +14,7 @@ const displayCard = async () => {
    
     countriesData
         .filter((country) => country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase()))
+        .slice(0, inputRange.value)
         .map((country) => {
             const title = country.translations.fra.common;
             const flagUrl = country.flags.png;
@@ -66,3 +56,7 @@ const displayCard = async () => {
 
 window.addEventListener('load', fetchCountries);
 inputSearch.addEventListener('input', displayCard);
+inputRange.addEventListener('input', () => {
+    displayCard();
+    rangeValue.textContent = inputRange.value;
+});
