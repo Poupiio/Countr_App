@@ -1,14 +1,12 @@
 const cardContainter = document.querySelector('.card-container');
 const rangeValue = document.getElementById('range-value');
 
+
 range.addEventListener('input', updateRangeValue);
 
-// Fonction pour mettre à jour la valeur dans le span
 function updateRangeValue() {
-    // Récupère la valeur actuelle du range
     const newRange = range.value;
 
-    // Met à jour le contenu du span avec la valeur du range
     rangeValue.textContent = newRange;
 }
 
@@ -16,12 +14,12 @@ const fetchCountries = async () => {
     const fetchData = await fetch("https://restcountries.com/v3.1/all");
     const data = await fetchData.json();
 
-    return data;
+    countriesData = data;
+
+    displayCard();
 }
 
-const createCard = async () => {
-    const countriesData = await fetchCountries();
-    console.log(countriesData);
+const displayCard = async () => {
    
     countriesData.map((data) => {
         const title = data.translations.fra.common;
@@ -53,7 +51,7 @@ const createCard = async () => {
         h3.append(capitalName);
 
         const pop = document.createElement('p');
-        pop.textContent = `Nombre d'habitants : ${population}`;
+        pop.textContent = `Nombre d'habitants : ${population.toLocaleString()}`;
 
         content.append(h2, h3, pop);
 
@@ -62,5 +60,5 @@ const createCard = async () => {
     })
 }
 
-createCard()
+window.addEventListener('load', fetchCountries);
 
