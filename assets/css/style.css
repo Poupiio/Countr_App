@@ -28,15 +28,6 @@ p {
     margin: 5px 0;
 }
 
-input {
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    color: #232D3F;
-    margin-right: 10px;
-}
-
 button {
     cursor: pointer;
     background: #4633ae;
@@ -51,9 +42,18 @@ button:hover, a:hover {
     box-shadow: 0px 0px 14px 3px #4633ae;
 }
 
-#search {
-    text-transform: uppercase;
-    font-weight: 600;
+#inputSearch {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: #232D3F;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#inputSearch:focus {
+    border: solid 3px #4633ae;
 }
 
 .filter-container {
@@ -102,14 +102,10 @@ input[type="range"] {
 
 .card {
     border-radius: 15px;
-    width: 250px;
-    height: 300px;
+    width: 230px;
+    height: 320px;
     margin-bottom: 35px;
     box-shadow: 0px 0px 14px 6px #4633ae;
-}
-
-.card:not(:last-child) {
-    margin-right: 15px;
 }
 
 .img-container {
@@ -127,8 +123,6 @@ input[type="range"] {
 .content {
     padding: 5px 15px;
 }
-
-
 
 a#back {
     display: block;
