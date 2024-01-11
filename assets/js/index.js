@@ -1,4 +1,6 @@
 const cardContainter = document.querySelector('.card-container');
+const btnSort = document.querySelectorAll('.btn-sort');
+let sortMethod = "maxToMin";
 
 const fetchCountries = async () => {
     const fetchData = await fetch("https://restcountries.com/v3.1/all");
@@ -15,6 +17,15 @@ const displayCard = async () => {
     countriesData
         .filter((country) => country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase()))
         .slice(0, inputRange.value)
+        .sort((a, b) => {
+            if (sortMethod === "maxToMin") {
+                return b.population - a.population;
+            } else if (sortMethod === "minToMax") {
+                return a.population - b.population;
+            } else if (sortMethod === "alpha") {
+                return a.translations.fra.common.localeCompare(b.translations.fra.common);
+            }
+        })
         .map((country) => {
             const title = country.translations.fra.common;
             const flagUrl = country.flags.png;
@@ -56,7 +67,15 @@ const displayCard = async () => {
 
 window.addEventListener('load', fetchCountries);
 inputSearch.addEventListener('input', displayCard);
+
 inputRange.addEventListener('input', () => {
     displayCard();
     rangeValue.textContent = inputRange.value;
 });
+
+btnSort.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        sortMethod = e.target.id;
+        displayCard();
+    })
+})

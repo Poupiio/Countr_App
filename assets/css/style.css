@@ -12,17 +12,23 @@ body {
     margin: 30px 0;
 }
 
-form {
-    width: 40%;
-    margin: 0 auto;
-    padding: 20px 10px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 15px 0;
+    color: #00D1B5;
 }
 
-.search-bar input[type="text"], .search-bar input[type="submit"] {
+h3 {
+    font-size: 1rem;
+}
+
+p {
+    margin: 5px 0;
+}
+
+input {
     outline: none;
     border: none;
     border-radius: 5px;
@@ -31,30 +37,39 @@ form {
     margin-right: 10px;
 }
 
-.search-bar input[type="submit"], .sort button, a#back {
+button {
     cursor: pointer;
     background: #4633ae;
     color: #fff;
     transition: 0.3s ease-in-out;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
 }
 
-.search-bar input[type="submit"] {
+button:hover, a:hover {
+    box-shadow: 0px 0px 14px 3px #4633ae;
+}
+
+#search {
     text-transform: uppercase;
     font-weight: 600;
 }
 
-.search-bar input[type="submit"]:hover, .sort button:hover, a#back:hover {
-    box-shadow: 0px 0px 14px 3px #4633ae;
+.filter-container {
+    text-align: center;
 }
 
-.range-bar {
+.range-container {
     margin: 15px 0;
 }
 
 #rangeValue {
     width: 20px;
     height: 20px;
-    color: #fff;
+    color: #5942db;
+    font-weight: 600;
+    font-size: 1.2rem;
     margin-left: 10px;
 }
 
@@ -62,17 +77,18 @@ input[type="range"] {
     cursor: pointer;
     display: block;
     margin: 10px auto;
+    width: 250px;
 }
 
-.sort button {
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
+.sort-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-sort {
     font-size: 0.9rem;
-}
-
-.sort button:not(:last-child) {
-    margin-right: 15px;
+    margin: 15px;
 }
 
 .card-container {
@@ -81,7 +97,7 @@ input[type="range"] {
     align-items: center;
     flex-wrap: wrap;
     width: 90%;
-    margin: 30px auto 0;
+    margin: 40px auto 0;
 }
 
 .card {
@@ -112,21 +128,7 @@ input[type="range"] {
     padding: 5px 15px;
 }
 
-h2 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 15px 0;
-    color: #00D1B5;
-}
 
-h3 {
-    font-size: 1rem;
-}
-
-p {
-    margin: 5px 0;
-}
 
 a#back {
     display: block;
@@ -138,4 +140,35 @@ a#back {
     line-height: 50px;
     text-align: center;
     border-radius: 150px;
+    color: #fff;
+    background: #4633ae;
+    border-radius: 150px;
+}
+
+@media screen and (max-width: 700px) {
+    .btn-sort {
+        font-size: 0.8rem;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+   .sort-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+   }
+
+   .btn-sort {
+        margin: 3px;
+   }
+}
+
+@media screen and (max-width: 350px) {
+    #rangeValue {
+        font-size: 1rem;
+    }
+    #inputRange {
+        width: 150px;
+    }
 }
