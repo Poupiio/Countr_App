@@ -1,4 +1,8 @@
-A simple country app using an open source API (restcountries API) to train myself.
-Using simple Javascript
+# Country App
+## Made with _restcountries_ API
 
-https://poupiio.github.io/Country_App/
+
+:label: https://poupiio.github.io/Country_App/
+
+
+:copyright: shoutout to From Scratch on _podia.com_ 
